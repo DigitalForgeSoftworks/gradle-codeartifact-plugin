@@ -1,0 +1,42 @@
+plugins {
+    id 'com.gradle.plugin-publish' version '1.2.1'
+    id 'groovy'
+}
+
+group 'org.digitalforge.gradle'
+version '1.0.0'
+
+sourceCompatibility = '11'
+targetCompatibility = '8'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    awsSdkVersion = '2.27.6'
+}
+
+dependencies {
+
+    api "software.amazon.awssdk:codeartifact:${awsSdkVersion}"
+
+    runtimeOnly "software.amazon.awssdk:sso:${awsSdkVersion}"
+    runtimeOnly "software.amazon.awssdk:ssooidc:${awsSdkVersion}"
+    runtimeOnly "software.amazon.awssdk:sts:${awsSdkVersion}"
+
+}
+
+gradlePlugin {
+    website = 'https://github.com/DigitalForgeSoftworks/gradle-codeartifact-plugin'
+    vcsUrl = 'https://github.com/DigitalForgeSoftworks/gradle-codeartifact-plugin'
+    plugins {
+        codeartifact {
+            id = 'org.digitalforge.gradle.codeartifact'
+            displayName = 'Gradle CodeArtifact Plugin'
+            description = 'Add CodeArtifact repository support.'
+            tags.set(['aws', 'codeartifact'])
+            implementationClass = 'org.digitalforge.gradle.codeartifact.CodeArtifactPlugin'
+        }
+    }
+}
