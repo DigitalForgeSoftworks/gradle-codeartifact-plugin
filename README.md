@@ -1,4 +1,4 @@
-# Gradle Codeartifact Plugin
+# Gradle CodeArtifact Plugin
 
 This plugin extends the Gradle `RepositoryHandler` to add support for CodeArtifact repositories.
 
@@ -9,7 +9,7 @@ You can add the plugin like this and add as many codeartifact repositories, as y
 
 ```groovy
 plugins {
-    id 'org.digitalforge.gradle.codeartifact' version '1.0.0'
+    id 'org.digitalforge.gradle.codeartifact' version '1.0.1'
 }
 
 repositories {
@@ -27,7 +27,7 @@ Or to add repositories to the Publishing plugin:
 ```groovy
 plugins {
     id 'maven-publish'
-    id 'org.digitalforge.gradle.codeartifact' version '1.0.0'
+    id 'org.digitalforge.gradle.codeartifact' version '1.0.1'
 }
 
 publishing {
