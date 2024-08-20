@@ -4,10 +4,15 @@ import org.gradle.api.artifacts.dsl.RepositoryHandler
 
 class CodeArtifactRepository {
 
+    private String name;
     private String region
     private String domain
     private String domainOwner
     private String repository
+
+    void name(String name) {
+        this.name = name;
+    }
 
     void region(String region) {
         this.region = region
@@ -35,6 +40,7 @@ class CodeArtifactRepository {
         )
 
         repositories.maven {
+            name this.name ?: 'codeArtifact'
             url api.repositoryUrl()
             credentials {
                 username 'aws'
